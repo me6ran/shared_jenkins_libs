@@ -29,6 +29,7 @@ def call() {
                         echo "test_info.integer is $test_info.integer"
                         echo "test_info.zone is $test_info.zone"
                         echo "test_info.notvalid is $test_info.notvalid"
+                        echo "test_info.zone.toBoolean() is $test_info.zone.toBoolean()"
                         if(!test_info.integer.toBoolean()){
                             echo "we found it is false"
                         }
