@@ -27,7 +27,7 @@ def call() {
                         test1 = prop_readr.get_property("my_prop.properties")
                         test_info = readProperties file: "my_file.txt"
                         echo "test_info.area is $test_info.area"
-                        echo "test_info.integer is $test_info.integer.toBoolean()"
+                        echo "test_info.integer is $test_info.integer"
                         echo "test_info.zone is $test_info.zone"
                         echo "test_info.notvalid is $test_info.notvalid"
                         if(!test_info.integer.toBoolean()){
