@@ -69,14 +69,5 @@ def call() {
         }
     }
 
-    def archiveSingleFile(String file_path){
-        sh label: "check current path", script: "pwd;"
-        echo "Archiving $file_path"
-        if (!fileExists(file_path)) {
-            echo "ERROR: try to archive: $file_path but it does not exist."
-            return
-        }
-        archiveArtifacts "$file_path"
-
-    }
 }
+
