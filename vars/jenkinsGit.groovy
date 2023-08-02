@@ -25,6 +25,7 @@ def call() {
                         J_FILENAME = "new_output.json"
                         test1 = helper.get_property("my_prop.properties")
                         test_info = readProperties file: "my_file.txt"
+                        sh label: "show my_file.txt", script: "cat my_file.txt"
                         echo "test_info.area is $test_info.area"
                         echo "test_info.integer is $test_info.integer"
                         echo "test_info.zone is $test_info.zone"
