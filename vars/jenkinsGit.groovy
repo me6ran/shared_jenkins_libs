@@ -23,8 +23,7 @@ def call() {
                 steps {
                     script {
                         J_FILENAME = "new_output.json"
-                        def prop_readr = load "helper.groovy"
-                        test1 = prop_readr.get_property("my_prop.properties")
+                        test1 = helper.get_property("my_prop.properties")
                         test_info = readProperties file: "my_file.txt"
                         echo "test_info.area is $test_info.area"
                         echo "test_info.integer is $test_info.integer"
@@ -41,7 +40,7 @@ def call() {
                         archiveSingleFile(file_path=J_FILENAME)
                         echo "json content is $json_content"
                         echo "check env"
-                        prop_readr.check_env()
+                        helper.check_env()
                         // def jsonContent = readJSON text: jsonFile
                     }
                     echo "got the propertie info: $test1"
@@ -59,7 +58,7 @@ def call() {
                     sh 'echo "Deploying Hello World"'
                     script {
                     echo "check env"
-                    prop_readr.check_env()
+                    helper.check_env()
 
                     }
 
