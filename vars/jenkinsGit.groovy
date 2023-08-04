@@ -38,7 +38,7 @@ def call() {
                         else {
                             echo "we are not able to examine the 'false'"
                         }
-                        sh label: "run python file", script: "python3 my_python.py -mos_tasks_filename $J_FILENAME"
+                        sh label: "run python file", script: "source ./venv/bin/activate;python3 my_python.py -mos_tasks_filename $J_FILENAME"
                         def json_content = readFile(file: J_FILENAME)
                         helper.archiveSingleFile(file_path=J_FILENAME)
                         echo "json content is $json_content"
