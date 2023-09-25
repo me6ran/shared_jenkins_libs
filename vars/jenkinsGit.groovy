@@ -2,6 +2,9 @@ def call() {
 
     pipeline {
         agent any
+        parameters {
+            booleanParam name: 'EnableBuild', defaultValue: false, description: 'would enable build process before running test'
+        }
         stages {
             stage('Build') {
                 environment {
