@@ -25,4 +25,14 @@ def archiveSingleFile(String file_path){
 
 }
 
+def RunTestGitCheckout(){
+    def triggeredJob = build job: 'test_git_checkout',
+    parameters: [booleanParam(name: 'myBooleanParameter', value: true)]
+    echo "triggeredJob: $triggeredJob"
+    echo "Triggered build number: ${triggeredJob.number}"
+    echo "Triggered build result: ${triggeredJob.result}"
+    echo "Triggered build fullDisplayName: ${triggeredJob.fullDisplayName}"
+    echo "Triggered build duration: ${triggeredJob.duration}"
+}
+
 return this
