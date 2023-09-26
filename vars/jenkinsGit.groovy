@@ -70,13 +70,15 @@ def call() {
 
                 }
             }
-        stage('Build_Downstream'){
-            steps {
-                script {
-                    helper.RunTestGitCheckout()
+            stage('Build_Downstream'){
+                steps {
+                    script {
+                        helper.RunTestGitCheckout()
+                    }
                 }
-            }
-        } // end of downstream run stage
+            } // end of downstream run stage
+        } // end of stage
+
     } // end of pipeline
 
 }
