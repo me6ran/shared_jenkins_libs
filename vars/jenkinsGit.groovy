@@ -1,7 +1,12 @@
 def call() {
 
     pipeline {
-        agent any
+        agent { 
+            dockerfile {
+                filename "Dockerfile"
+                args '--privileged --network=host'
+            } 
+            }
         parameters {
             booleanParam name: 'EnableBuild', defaultValue: false, description: 'would enable build process before running test'
         }
@@ -9,15 +14,19 @@ def call() {
             stage('Build') {
                 environment {
                     venv_name = "test_venv"
+                    PYTHONPATH="$WORKSPACE"
                 }
                 steps {
                     sh """
+                    env | sort
+                    uname -a
+                    git --version
                     python3 -m venv venv; source ./venv/bin/activate; pip install -r requirements.txt
                     python -u -m pytest -s -v test/test_basic_stuff.py
 
-                    """
-                    sh 'source ./my_env'
-                    sh 'env'
+                    // """
+                    // sh 'source ./my_env'
+                    // sh 'env'
 
                 }
             }
