@@ -1,7 +1,7 @@
 def call() {
 
     pipeline {
-        agent any
+        agent { dockerfile true }
         parameters {
             booleanParam name: 'EnableBuild', defaultValue: false, description: 'would enable build process before running test'
         }
@@ -12,6 +12,7 @@ def call() {
                 }
                 steps {
                     sh """
+                    git --version
                     python3 -m venv venv; source ./venv/bin/activate; pip install -r requirements.txt
                     python -u -m pytest -s -v test/test_basic_stuff.py
 
