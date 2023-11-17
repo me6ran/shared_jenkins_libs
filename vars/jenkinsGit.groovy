@@ -12,6 +12,7 @@ def call() {
                 }
                 steps {
                     sh """
+                    uname -a
                     git --version
                     python3 -m venv venv; source ./venv/bin/activate; pip install -r requirements.txt
                     python -u -m pytest -s -v test/test_basic_stuff.py
