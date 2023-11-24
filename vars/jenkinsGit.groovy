@@ -9,9 +9,11 @@ def call() {
             stage('Build') {
                 environment {
                     venv_name = "test_venv"
+                    PYTHONPATH=$(WORKSPACE)
                 }
                 steps {
                     sh """
+                    env | sort
                     uname -a
                     git --version
                     python3 -m venv venv; source ./venv/bin/activate; pip install -r requirements.txt
