@@ -9,7 +9,7 @@ def call() {
             stage('Build') {
                 environment {
                     venv_name = "test_venv"
-                    PYTHONPATH=$(WORKSPACE)
+                    PYTHONPATH=$WORKSPACE
                 }
                 steps {
                     sh """
